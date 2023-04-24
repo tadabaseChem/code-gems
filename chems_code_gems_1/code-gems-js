@@ -1,0 +1,21 @@
+TB.triggerPipe('PIPE_CODE', 
+	{blank: 'undefined'},
+	function(type, response, xhrRespone) {
+		response.forEach(response => {
+            let 
+                userId = response.userId,
+                id = response.id,
+                title = response.title, 
+                completed = response.completed,
+                template = document.querySelector('#list-item-template'),
+                clone = template.content.cloneNode(true);
+                
+                $(clone).find('.user-id').html(userId);
+                $(clone).find('.response-id').html(id);
+                $(clone).find('.title').html(title);
+                $(clone).find('.completed').html(completed);
+                $('#list-items').append(clone);
+        });
+		
+	}
+);
